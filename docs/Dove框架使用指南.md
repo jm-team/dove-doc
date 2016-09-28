@@ -586,3 +586,19 @@ properties文件中加入
     在kibana上针对这个index，可以图形化的方式查看统计信息。
     
 ## 21 生成实体类
+    第一步
+    把配置中的内容拷贝到maven的pom.xml文件中plugins节点下
+    第二步
+    执行 mvn eclipse:clean eclipse:eclipse，构建下
+    第三步
+    替换jar包mybatis-generator-core-1.3.3（自己本地的maven仓库中，每个人的目录结构有区别，包路径：org\mybatis\generator\mybatis-generator-core）
+    第四步
+    把generatorConfig.xml放在项目录下中，与pom中配置的路径一直（第一步）
+    第五步
+    修改generatorConfig.xml相关配置(参见里面有提示)
+    第六步
+    选中pom.xml鼠标右键 run as----》maven build
+    第七步
+    在Goals中输入mybatis-generator:generate
+    第八步
+    等待结果。
