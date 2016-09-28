@@ -563,5 +563,26 @@ properties文件中加入
 
 ## 20 统计功能的使用
     使用注解@Statistics来实现访问的次数和访问耗时的统计,注解@Statistics可以加在Method , Class , Package三个级别上。
-    配合@NoStatistics注解可以很好的实现各种灵活的配置
-## 20 生成实体类
+    配合@NoStatistics注解(从统计中个别排除)可以很好的实现各种灵活的配置
+    
+    Class级别的注解例:
+    
+    @Statistic
+    public class CommonDaoImpl implements CommonDao {
+
+    统计信息是通过打印一条特殊的log实现的（log的Marker为statistics）。如果不希望这条log出现在console或者文件的日志中，
+    需要在logback的配置文件中增加filter（NoStatisticsLogFilter）。
+    
+    配置例：
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <Target>System.out</Target>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss}[%t]%-5p %c{36}.%M\(%L\) %m%n</pattern>
+        </encoder>
+        <filter class="com.jumore.dove.common.log.NoStatisticsLogFilter" />
+    </appender>
+    
+    统计日志会被记入到ElasticSearch的 应用名_statistics_kafka_index 索引中。（应用名是在 FlumeAppender中配置的）
+    在kibana上针对这个index，可以图形化的方式查看统计信息。
+    
+## 21 生成实体类
