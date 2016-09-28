@@ -1,23 +1,23 @@
-## Dove¿ò¼ÜÊ¹ÓÃÖ¸ÄÏ ##
+## Doveæ¡†æ¶ä½¿ç”¨æŒ‡å— ##
 
 [TOC]
 
-## 1. Ê²Ã´ÊÇdove¿ò¼Ü? ##
+## 1. ä»€ä¹ˆæ˜¯doveæ¡†æ¶? ##
 
-	doveÌá¹©ÁË°üÀ¨Dao ,BaseService·â×°£¬ Cache , ÏûÏ¢ÖĞ¼ä¼ş£¬¶ÌĞÅ·şÎñ£¬¼à¿Ø(Â½ĞøÔö¼Ó)µÈ¸÷ÖÖ¹«ÓÃ¹¦ÄÜµÄ¹¤³Ì
+	doveæä¾›äº†åŒ…æ‹¬Dao ,BaseServiceå°è£…ï¼Œ Cache , æ¶ˆæ¯ä¸­é—´ä»¶ï¼ŒçŸ­ä¿¡æœåŠ¡ï¼Œç›‘æ§(é™†ç»­å¢åŠ )ç­‰å„ç§å…¬ç”¨åŠŸèƒ½çš„å·¥ç¨‹
 
-## 2. ÈçºÎÒıÈëdove¿ò¼Ü? ##
+## 2. å¦‚ä½•å¼•å…¥doveæ¡†æ¶? ##
 	<dependency> 
    		<groupId>com.jumore</groupId>
       	<artifactId>dove</artifactId>
-		<!--¾ßÌå°æ±¾ºÅÁªÏµ¼Ü¹¹×é-->
+		<!--å…·ä½“ç‰ˆæœ¬å·è”ç³»æ¶æ„ç»„-->
       	<version>1.5.0-SNAPSHOT</version>
  	</dependency>
 
-ÔÚÄãµÄspringÅäÖÃÎÄ¼şÖĞ¼ÓÈëÒÔÏÂÅäÖÃ
+åœ¨ä½ çš„springé…ç½®æ–‡ä»¶ä¸­åŠ å…¥ä»¥ä¸‹é…ç½®
 
 	<import resource="classpath:dove/dove-*.xml"/>
-	<!--Ò²¿ÉÒÔ¸ù¾İĞèÒª·Ö±ğÒıÈë
+	<!--ä¹Ÿå¯ä»¥æ ¹æ®éœ€è¦åˆ†åˆ«å¼•å…¥
 	<import resource="classpath:dove/dove-mvc.xml"/>
 	<import resource="classpath:dove/dove-dao.xml"/>
 	<import resource="classpath:dove/dove-service.xml"/>
@@ -29,13 +29,13 @@
 	<bean id="sqlSessionFactory" class="com.jumore.dove.dao.MySqlSessionFactoryBean">
     	<property name="dataSource" ref="dataSource" />
         <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"></property>
-        <!-- mapperÉ¨Ãè -->
+        <!-- mapperæ‰«æ -->
         <property name="mapperLocations" value="classpath:mybatis/mapper/*/*.xml"></property>
     </bean>
 
-¼ÓÈëdove.propertiesÎÄ¼ş,ÔÚclasspathÏÂĞÂ½¨config/dove.propertiesÎÄ¼ş,ÔÚÎÄ¼şÖĞ¼ÓÈëÒÔÏÂÅäÖÃ(¿ª·¢»·¾³)
+åŠ å…¥dove.propertiesæ–‡ä»¶,åœ¨classpathä¸‹æ–°å»ºconfig/dove.propertiesæ–‡ä»¶,åœ¨æ–‡ä»¶ä¸­åŠ å…¥ä»¥ä¸‹é…ç½®(å¼€å‘ç¯å¢ƒ)
 
-	#ËùÓĞµÄÅäÖÃ²»Ê¹ÓÃµÄ²»ÒªÉ¾³ı£¬¿ÉÒÔ½«ÏàÓ¦µÄÄ£¿éÉèÖÃenable=false    
+	#æ‰€æœ‰çš„é…ç½®ä¸ä½¿ç”¨çš„ä¸è¦åˆ é™¤ï¼Œå¯ä»¥å°†ç›¸åº”çš„æ¨¡å—è®¾ç½®enable=false    
 	
     appName=console
     
@@ -64,10 +64,10 @@
     elastic.job.registry=192.168.1.50:2181,192.168.1.51:2181,192.168.1.52:2181
 
 
-## 3. ÈçºÎÌí¼ÓÒ»¸ödao? ##
-	ÒµÎñ´úÂë²»ĞèÒªÔö¼Ó×Ô¼ºµÄDAO,¼Ç×¡ÕâÒ»Ìõ¾Í¿ÉÒÔÁË,dove daoÌá¹©ÁËÒ»¸öÍ¨ÓÃÊµÏÖ
+## 3. å¦‚ä½•æ·»åŠ ä¸€ä¸ªdao? ##
+	ä¸šåŠ¡ä»£ç ä¸éœ€è¦å¢åŠ è‡ªå·±çš„DAO,è®°ä½è¿™ä¸€æ¡å°±å¯ä»¥äº†,dove daoæä¾›äº†ä¸€ä¸ªé€šç”¨å®ç°
 
-## 3. ÈçºÎÌí¼ÓÒ»¸öservice? ##
+## 3. å¦‚ä½•æ·»åŠ ä¸€ä¸ªservice? ##
 
 	public interface UserOrderService extends BaseService{
 		public void youBizService();
@@ -77,27 +77,27 @@
 		public void youBizService(){
 		}
 	}
-	ÒÔÉÏÊÇÒ»¸öµäĞÍµÄÒµÎñÏµÍ³ÖĞ¶¨Òå×Ô¼ºµÄService´úÂë£¬µ±È»ÄãĞèÒª½«UserOrderServiceImplÅäÖÃ³ÉÒ»¸öspring bean.
+	ä»¥ä¸Šæ˜¯ä¸€ä¸ªå…¸å‹çš„ä¸šåŠ¡ç³»ç»Ÿä¸­å®šä¹‰è‡ªå·±çš„Serviceä»£ç ï¼Œå½“ç„¶ä½ éœ€è¦å°†UserOrderServiceImplé…ç½®æˆä¸€ä¸ªspring bean.
 
 
-## 4. ÈçºÎ¶¨ÒåÒ»¸öÊµÌåÀà? ##
+## 4. å¦‚ä½•å®šä¹‰ä¸€ä¸ªå®ä½“ç±»? ##
 
-	@Entity //±ê×¢ÕâÊÇÒ»¸öÊµÌåÀà£¬dove daoµÄsave/update·½·¨»á¼ì²é´Ë×¢½â£¬Ã»ÓĞÕâ¸ö×¢½âµÄ¶ÔÏó²»»á±£´æµ½Êı¾İ¿â
-	@Table(name="user_order");//¶¨ÒåÁËÊµÌåÀà¶ÔÓ¦µÄÊı¾İ¿â±íÃû³Æ£¬Ä¬ÈÏ¿ÉÒÔ²»¼Ó´Ë×¢½â£¬ÄÇÃ´dove daoÄ¬ÈÏ½«ÀàÃûµ±×ö±íÃû
+	@Entity //æ ‡æ³¨è¿™æ˜¯ä¸€ä¸ªå®ä½“ç±»ï¼Œdove daoçš„save/updateæ–¹æ³•ä¼šæ£€æŸ¥æ­¤æ³¨è§£ï¼Œæ²¡æœ‰è¿™ä¸ªæ³¨è§£çš„å¯¹è±¡ä¸ä¼šä¿å­˜åˆ°æ•°æ®åº“
+	@Table(name="user_order");//å®šä¹‰äº†å®ä½“ç±»å¯¹åº”çš„æ•°æ®åº“è¡¨åç§°ï¼Œé»˜è®¤å¯ä»¥ä¸åŠ æ­¤æ³¨è§£ï¼Œé‚£ä¹ˆdove daoé»˜è®¤å°†ç±»åå½“åšè¡¨å
 	public class UserOrder{
-		@Id //´Ë×¢½â±ê×¢ÁËÒ»¸öÖ÷¼ü×Ö¶Î£¬Ã¿Ò»¸öÊµÌåÀà¶¼ÊÇ±ØĞëµÄ£¬Ò²Ó¦¸ÃÓĞÒ»¸öÂß¼­Ö÷¼ü
-		@AutoIncrease //±íÃ÷Ö÷¼üÓÉÊı¾İ¿â×ÔÔö²úÉú£¬²»ÊÇ±ØĞëµÄ×¢½â£¬Èç¹û²»¼Ó£¬ÄÇÃ´¾ÍÒªÔÚsaveÖ®Ç°£¬Í¨¹ı´úÂëÎªuid¸³Öµ
-		@Sequence //´Ë×¢½â±íÊ¾Ö÷¼üÉú³É·½Ê½ÊÇÓÉÊı¾İ¿âĞòÁĞ²úÉú,ºÍ@AutoIncreaseÖ»ĞèÒªÒ»¸ö¼´¿É£¬Èç¹ûÁ½¸ö×¢½â¶¼ÓĞ£¬ÒÔ@AutoIncreaseÓÅÏÈ
+		@Id //æ­¤æ³¨è§£æ ‡æ³¨äº†ä¸€ä¸ªä¸»é”®å­—æ®µï¼Œæ¯ä¸€ä¸ªå®ä½“ç±»éƒ½æ˜¯å¿…é¡»çš„ï¼Œä¹Ÿåº”è¯¥æœ‰ä¸€ä¸ªé€»è¾‘ä¸»é”®
+		@AutoIncrease //è¡¨æ˜ä¸»é”®ç”±æ•°æ®åº“è‡ªå¢äº§ç”Ÿï¼Œä¸æ˜¯å¿…é¡»çš„æ³¨è§£ï¼Œå¦‚æœä¸åŠ ï¼Œé‚£ä¹ˆå°±è¦åœ¨saveä¹‹å‰ï¼Œé€šè¿‡ä»£ç ä¸ºuidèµ‹å€¼
+		@Sequence //æ­¤æ³¨è§£è¡¨ç¤ºä¸»é”®ç”Ÿæˆæ–¹å¼æ˜¯ç”±æ•°æ®åº“åºåˆ—äº§ç”Ÿ,å’Œ@AutoIncreaseåªéœ€è¦ä¸€ä¸ªå³å¯ï¼Œå¦‚æœä¸¤ä¸ªæ³¨è§£éƒ½æœ‰ï¼Œä»¥@AutoIncreaseä¼˜å…ˆ
 		private Long uid;
 
-		@Column(name="orde_account"); // ¶¨ÒåÁËÊı¾İ¿â¶ÔÓ¦µÄ×Ö¶Î£¬²»ÊÇ±ØĞë£¬Ä¬ÈÏdove daoÒÔÊµÌåÀàµÄ×Ö¶ÎÃû×÷ÎªÊı¾İ¿â×Ö¶ÎÃûÊ¹ÓÃ
+		@Column(name="orde_account"); // å®šä¹‰äº†æ•°æ®åº“å¯¹åº”çš„å­—æ®µï¼Œä¸æ˜¯å¿…é¡»ï¼Œé»˜è®¤dove daoä»¥å®ä½“ç±»çš„å­—æ®µåä½œä¸ºæ•°æ®åº“å­—æ®µåä½¿ç”¨
 		private Integer orderCount;
 
 		//...setter/getter...//
 	}
-×Ô´Ë£¬ÎÒÃÇÒÑ¾­¶¨ÒåÁËÒ»¸ö¿ÉÓÃµÄÊµÌåÀàÁË£¬ÈÃÎÒÃÇ½øĞĞÏÂÒ»²½
+è‡ªæ­¤ï¼Œæˆ‘ä»¬å·²ç»å®šä¹‰äº†ä¸€ä¸ªå¯ç”¨çš„å®ä½“ç±»äº†ï¼Œè®©æˆ‘ä»¬è¿›è¡Œä¸‹ä¸€æ­¥
 
-## 5. ÈçºÎÌí¼ÓÒ»¸öcontroller? ##
+## 5. å¦‚ä½•æ·»åŠ ä¸€ä¸ªcontroller? ##
 
 	@Controller
 	@RequestMapping("/userOrder")
@@ -110,22 +110,22 @@
 		public void save(PrintWriter out){
 			UserOrder uo = new UserOrder();
 			uo.setOrderAccount = 3;
-			//UserOrderService¼Ì³ĞÁËBaseService,¶øUserOrderServiceImpl¼Ì³ĞÁËBaseServiceImpl
-			//BaseService·â×°ÁËCommonDaoµÄ²Ù×÷£¬Òò´ËÄãµÄUserOrderService¿ÉÒÔÖ±½Ó±£´æUserOrder¶ÔÏóÁË
+			//UserOrderServiceç»§æ‰¿äº†BaseService,è€ŒUserOrderServiceImplç»§æ‰¿äº†BaseServiceImpl
+			//BaseServiceå°è£…äº†CommonDaoçš„æ“ä½œï¼Œå› æ­¤ä½ çš„UserOrderServiceå¯ä»¥ç›´æ¥ä¿å­˜UserOrderå¯¹è±¡äº†
 			userOrderService.save(uo);
 			result.put("resultCode", 1);
-			result.put("resultMsg", "±£´æ³É¹¦");
+			result.put("resultMsg", "ä¿å­˜æˆåŠŸ");
 			out.write(result.toJSONString());// will improve later
 		}
 	}
 
-## 6. CommonDaoÖĞÌá¹©ÁËÄÄĞ©·½·¨? ##
+## 6. CommonDaoä¸­æä¾›äº†å“ªäº›æ–¹æ³•? ##
 	public void save(Object entity);
 	
 	public void batchSave(List list);
 	
 	/**
-	 * ¸ù¾İid(ÓÉ×¢½â @Id ¾ö¶¨ ) ¸üĞÂentityÖĞ²»ÎªnullµÄÖµ
+	 * æ ¹æ®id(ç”±æ³¨è§£ @Id å†³å®š ) æ›´æ–°entityä¸­ä¸ä¸ºnullçš„å€¼
 	 * @param entity
 	 */
 	public void update(Object entity);
@@ -133,7 +133,7 @@
 	public void deleteById(Class<?> clazz ,Object id);
 	
 	/**
-	 * ¸ù¾İid(ÓÉ×¢½â @Id ¾ö¶¨ ) É¾³ı±íÊı¾İ
+	 * æ ¹æ®id(ç”±æ³¨è§£ @Id å†³å®š ) åˆ é™¤è¡¨æ•°æ®
 	 * @param entity
 	 */
 	public void delete(Object entity);
@@ -143,7 +143,7 @@
 	public <T> T get(Class<T> clazz,Object id);
 	
 	/**
-	 * ÓëlistByExample·½Ê½Ò»Ñù£¬µ¥·µ»Øµ¥ÌõÊı¾İ
+	 * ä¸listByExampleæ–¹å¼ä¸€æ ·ï¼Œå•è¿”å›å•æ¡æ•°æ®
 	 * @param vo
 	 * @return
 	 */
@@ -154,7 +154,7 @@
 	 * Account account = new Account();
 	 * account.name="test";
 	 * account.pwd = "123456";
-	 * µÈ¼ÛÓë²éÑ¯
+	 * ç­‰ä»·ä¸æŸ¥è¯¢
 	 * select * from Account where name='test' and pwd = '123456'
 	 * @param vo
 	 * @return
@@ -162,42 +162,42 @@
 	public <T> List<T> listByExample(Object vo);
 	
 	/**
-	 * ¸ù¾İ²éÑ¯Ìõ¼ş²éÑ¯½á¹û
-	 * @param statement mybatis mapperÎÄ¼şÖĞ¶¨ÒåµÄ²éÑ¯Óï¾äid
-	 * @param paramMap	²ÎÊı£¬ÊÇÒ»¸ömap
-	 * @return ·µ»Ø½á¹ûÊÇmap list.
+	 * æ ¹æ®æŸ¥è¯¢æ¡ä»¶æŸ¥è¯¢ç»“æœ
+	 * @param statement mybatis mapperæ–‡ä»¶ä¸­å®šä¹‰çš„æŸ¥è¯¢è¯­å¥id
+	 * @param paramMap	å‚æ•°ï¼Œæ˜¯ä¸€ä¸ªmap
+	 * @return è¿”å›ç»“æœæ˜¯map list.
 	 */
 	public List<Map> listByParams(String statement , ParamMap paramMap);
 	
 	/**
-	 * ¸ù¾İ²éÑ¯Ìõ¼ş²éÑ¯½á¹û
-	 * @param clazz ·µ»Ø½á¹û±»·â×°³ÉµÄjavaÀà£¬ÔÚÁª±í²éÑ¯Ê±¿ÉÒÔ¶¨Òå¸öÀà£¬°üº¬ËùÓĞ²éÑ¯Óï¾äĞèÒª·µ»ØµÄ×Ö¶Î¡£
-	 * @param statement mybatis mapperÎÄ¼şÖĞ¶¨ÒåµÄ²éÑ¯Óï¾äid
-	 * @param paramMap ²ÎÊı£¬ÊÇÒ»¸ömap
-	 * @return ½á¹û±»·â×°³É ²ÎÊıclazzµÄÊµÀı¼¯ºÏ
+	 * æ ¹æ®æŸ¥è¯¢æ¡ä»¶æŸ¥è¯¢ç»“æœ
+	 * @param clazz è¿”å›ç»“æœè¢«å°è£…æˆçš„javaç±»ï¼Œåœ¨è”è¡¨æŸ¥è¯¢æ—¶å¯ä»¥å®šä¹‰ä¸ªç±»ï¼ŒåŒ…å«æ‰€æœ‰æŸ¥è¯¢è¯­å¥éœ€è¦è¿”å›çš„å­—æ®µã€‚
+	 * @param statement mybatis mapperæ–‡ä»¶ä¸­å®šä¹‰çš„æŸ¥è¯¢è¯­å¥id
+	 * @param paramMap å‚æ•°ï¼Œæ˜¯ä¸€ä¸ªmap
+	 * @return ç»“æœè¢«å°è£…æˆ å‚æ•°clazzçš„å®ä¾‹é›†åˆ
 	 */
 	public <T> List<T> listByParams(Class<T> clazz, String statement, ParamMap paramMap);
 	
 	/**
-	 * ·ÖÒ³²éÑ¯£¬¶àÓÃÓÚµ¥±í²éÑ¯,ĞèÒªÔÚmapper.xmlÎÄ¼şÖĞĞ´sqlÓï¾ä
+	 * åˆ†é¡µæŸ¥è¯¢ï¼Œå¤šç”¨äºå•è¡¨æŸ¥è¯¢,éœ€è¦åœ¨mapper.xmlæ–‡ä»¶ä¸­å†™sqlè¯­å¥
 	 */
 	public <T> Page<T> findPageByParams(Class<T> clazz , Page<T> page ,String statement , ParamMap paramMap);
 	
     /**
-	 * µ¥±í·ÖÒ³Ãâsql²éÑ¯,²»ĞèÒªÔÚmapper.xmlÎÄ¼şÖĞĞ´sqlÓï¾ä
+	 * å•è¡¨åˆ†é¡µå…sqlæŸ¥è¯¢,ä¸éœ€è¦åœ¨mapper.xmlæ–‡ä»¶ä¸­å†™sqlè¯­å¥
 	 */
 	public <T> Page<T> findPage(Class<T> clazz , Page<T> page , ParamMap paramMap);
 
     /**
-	 * ·ÖÒ³²éÑ¯£¬¶àÓÃÓÚ¹ØÁª²éÑ¯
+	 * åˆ†é¡µæŸ¥è¯¢ï¼Œå¤šç”¨äºå…³è”æŸ¥è¯¢
 	 */
 	public Page<Map> findPageByParams(Page<Map> page, String statement , ParamMap paramMap);
 	
-	//Ö´ĞĞÒ»¸ösql
+	//æ‰§è¡Œä¸€ä¸ªsql
 	public int execute(String statement , ParamMap paramMap);
 
-## 7. ÈçºÎ¼¯³ÉshiroÈ¨ÏŞ¿ò¼Ü? ##
-   a.ÔÚweb.xmlÖĞÌí¼ÓÈçÏÂ´úÂë
+## 7. å¦‚ä½•é›†æˆshiroæƒé™æ¡†æ¶? ##
+   a.åœ¨web.xmlä¸­æ·»åŠ å¦‚ä¸‹ä»£ç 
 
 	<filter>
     	<filter-name>shiroFilter</filter-name>
@@ -214,14 +214,14 @@
 	    <url-pattern>/*</url-pattern>
 	</filter-mapping>
 
-   b.ÔÚspring.xmlÖĞÔö¼ÓÒÔÏÂÅäÖÃ
+   b.åœ¨spring.xmlä¸­å¢åŠ ä»¥ä¸‹é…ç½®
 	<!-- ================ Shiro start ================ -->
 		<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
 			<property name="sessionManager" ref="sessionManager" />
 			<property name="realm" ref="loRealm" />
 		</bean>
     
-    <bean id="memoryCacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager"><!-- ×Ô¶¨ÒåcacheManager -->
+    <bean id="memoryCacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager"><!-- è‡ªå®šä¹‰cacheManager -->
     </bean>
     
     <bean id="sessionManager"  class="com.jumore.dove.cluster.MyDefaultWebSessionManager">
@@ -229,7 +229,7 @@
         <property name="sessionIdCookieEnabled" value="true" />
     </bean>
     
-	<!-- í—Ä¿×Ô¶¨ÒåµÄRealm -->
+	<!-- é …ç›®è‡ªå®šä¹‰çš„Realm -->
 	<bean id="loRealm" class="com.jumore.logisticsOperation.service.permission.LoRealm" >
 		<property name="cacheManager" ref="memoryCacheManager" />
 	</bean>
@@ -251,22 +251,22 @@
            	/account/login	 		= anon
            	/account/doLogin	 	= anon
            	/**						= authc
-			<!--authcÊÇshiroÄÚÖÃµÄÈÏÖ¤¹ıÂËÆ÷£¬¼òµ¥Àí½â¾ÍÊÇÒªµÇÂ¼-->
+			<!--authcæ˜¯shiroå†…ç½®çš„è®¤è¯è¿‡æ»¤å™¨ï¼Œç®€å•ç†è§£å°±æ˜¯è¦ç™»å½•-->
 			</value>
 		</property>
 	</bean>
 	<!-- ================ Shiro end ================ -->
 
-ºÃÁË£¬¿ÉÒÔ¿´µ½ /** autchÕâ¸öÅäÖÃÒªÇóÎÒÃÇ·ÃÎÊÃ¿¸öÒ³ÃæÇ°Òª¼ì²éÓÃ»§ÊÇ·ñ¾­¹ıÈÏÖ¤£¬ÄÇÃ´Õâ¸öÈÏÖ¤¹ı³ÌÔÚÄÄÀï½øĞĞÄØ£¬Ã»´í¾ÍÊÇÔÚÅäÖÃÖĞÎÒÃÇ¿´µ½ÄÃ¸ö ÏîÄ¿×Ô¶¨Òårealm¡£ÎÒÃÇ½«ÔÚÏÂÒ»¸öÎÊÌâÖĞÀ´¾ßÌåÃèÊö
+å¥½äº†ï¼Œå¯ä»¥çœ‹åˆ° /** autchè¿™ä¸ªé…ç½®è¦æ±‚æˆ‘ä»¬è®¿é—®æ¯ä¸ªé¡µé¢å‰è¦æ£€æŸ¥ç”¨æˆ·æ˜¯å¦ç»è¿‡è®¤è¯ï¼Œé‚£ä¹ˆè¿™ä¸ªè®¤è¯è¿‡ç¨‹åœ¨å“ªé‡Œè¿›è¡Œå‘¢ï¼Œæ²¡é”™å°±æ˜¯åœ¨é…ç½®ä¸­æˆ‘ä»¬çœ‹åˆ°æ‹¿ä¸ª é¡¹ç›®è‡ªå®šä¹‰realmã€‚æˆ‘ä»¬å°†åœ¨ä¸‹ä¸€ä¸ªé—®é¢˜ä¸­æ¥å…·ä½“æè¿°
 
-## 8. ÈçºÎÊ¹ÓÃshiroµÇÂ¼ÏµÍ³ ##
-	Ê×ÏÈÔÚcontrollerÖĞ£¬ÄãĞèÒªÕâÃ´Ğ´
+## 8. å¦‚ä½•ä½¿ç”¨shiroç™»å½•ç³»ç»Ÿ ##
+	é¦–å…ˆåœ¨controllerä¸­ï¼Œä½ éœ€è¦è¿™ä¹ˆå†™
 	@RequestMapping(value = "/doLogin")
 	public void doLogin(HttpServletResponse response, String username , String password) throws Exception{
 		UsernamePasswordToken token = new UsernamePasswordToken(username,password);
 		Map<String, Object> map = new HashMap<String, Object>();
 		try{
-			//¹Ø¼ü¾ÍÊÇÕâ¾ä»°,È»ºóÈ¥ÄÄÀïµÇÂ¼ÁËÄØ£¬´ğ°¸¾ÍÔÚÏîÄ¿×Ô¶¨ÒåµÄAuthorizingRealmÖĞ
+			//å…³é”®å°±æ˜¯è¿™å¥è¯,ç„¶åå»å“ªé‡Œç™»å½•äº†å‘¢ï¼Œç­”æ¡ˆå°±åœ¨é¡¹ç›®è‡ªå®šä¹‰çš„AuthorizingRealmä¸­
 			SecurityUtils.getSubject().login(token);
 			map.put("resultCode", 4);
 		}catch(Exception ex){
@@ -276,7 +276,7 @@
 		CommWriteResponse.writeResponse(response, JsonUtil.offerJson(map));
 	}
 	
-ÏÂÃæÀ´¿´¿´×Ô¶¨ÒåAuthorizingRealmµÄÀı×Ó
+ä¸‹é¢æ¥çœ‹çœ‹è‡ªå®šä¹‰AuthorizingRealmçš„ä¾‹å­
 	public class LoRealm extends AuthorizingRealm {
 
 		@Resource
@@ -285,17 +285,17 @@
 		@Override
 		protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
 			SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-			//´ÓsessionÈ¡ÓÃ»§
+			//ä»sessionå–ç”¨æˆ·
 			Account account = (Account) SecurityUtils.getSubject().getSession().getAttribute(Consts.Session_User_Key);
 			if("superadmin".equals(account.account)){
 				info.addStringPermission("*");
 			}
-			//Ìí¼Ó½ÇÉ«
+			//æ·»åŠ è§’è‰²
 			List<Role> roles = authorizationService.getRolesOfAccount(account.id);
 			for(Role role : roles){
 				info.addRole(role.code);
 			}
-			//Ìí¼ÓÈ¨ÏŞ
+			//æ·»åŠ æƒé™
 			List<Menu> menus = authorizationService.getMenusOfAccount(account.id);
 			for(Menu menu : menus){
 				info.addStringPermission(menu.code);	
@@ -305,27 +305,27 @@
 	
 		@Override
 		protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-			//SecurityUtils.getSubject().login(token)ºó£¬×îÖÕ½øĞĞÓÃ»§ĞÅÏ¢ÑéÖ¤µÄµØ·½¾ÍÔÚÕâÀï
-			String username = (String) token.getPrincipal(); // µÃµ½ÓÃ»§Ãû
-			String password = new String((char[]) token.getCredentials()); // µÃµ½ÃÜÂë
+			//SecurityUtils.getSubject().login(token)åï¼Œæœ€ç»ˆè¿›è¡Œç”¨æˆ·ä¿¡æ¯éªŒè¯çš„åœ°æ–¹å°±åœ¨è¿™é‡Œ
+			String username = (String) token.getPrincipal(); // å¾—åˆ°ç”¨æˆ·å
+			String password = new String((char[]) token.getCredentials()); // å¾—åˆ°å¯†ç 
 			if(StringUtils.isEmpty(username) || StringUtils.isEmpty(password)){
-				throw new RuntimeException("ÓÃ»§Ãû»òÃÜÂë²»ÄÜÎª¿Õ");
+				throw new RuntimeException("ç”¨æˆ·åæˆ–å¯†ç ä¸èƒ½ä¸ºç©º");
 			}
 			Account vo = new Account();
 			vo.account = username;
 			vo.password = MD5.md5(password);
 			Account po = (Account) authorizationService.getByExample(vo);
 			if(po!=null){
-				//½«ÓÃ»§ĞÅÏ¢±£´æµ½»º´æ
+				//å°†ç”¨æˆ·ä¿¡æ¯ä¿å­˜åˆ°ç¼“å­˜
 				SecurityUtils.getSubject().getSession().setAttribute(Consts.Session_User_Key, po);
 				return new SimpleAuthenticationInfo(username, password, getName());
 			} else {
-				throw new RuntimeException("ÓÃ»§Ãû»òÃÜÂë²»ÕıÈ·");
+				throw new RuntimeException("ç”¨æˆ·åæˆ–å¯†ç ä¸æ­£ç¡®");
 			}
 		}
 	}
 
-## 9. Ê¹ÓÃshiroÈçºÎÍË³ö ##
+## 9. ä½¿ç”¨shiroå¦‚ä½•é€€å‡º ##
 	@RequestMapping(value = "/doLogout")
 	public String doLogout(HttpServletResponse response) throws Exception{
 		SecurityUtils.getSubject().logout();
@@ -334,29 +334,29 @@
 		return "redirect:/account/login";
 	}
 
-## 10. velocityÒ³ÃæÈçºÎÊ¹ÓÃshiro×öÈ¨ÏŞÅĞ¶Ï? ##
+## 10. velocityé¡µé¢å¦‚ä½•ä½¿ç”¨shiroåšæƒé™åˆ¤æ–­? ##
 	#if($!subject.isPermitted('role_manager'))
-    	<li><span class="nav02" data-href="$!ServiceName/role/list">½ÇÉ«¹ÜÀí</span></li>
+    	<li><span class="nav02" data-href="$!ServiceName/role/list">è§’è‰²ç®¡ç†</span></li>
     #end
-	»òÕß
+	æˆ–è€…
 	#if($!subject.hasRole('admin'))
-    	<li><span class="nav02" data-href="$!ServiceName/role/list">½ÇÉ«¹ÜÀí</span></li>
+    	<li><span class="nav02" data-href="$!ServiceName/role/list">è§’è‰²ç®¡ç†</span></li>
     #end
-	//subject»ò¿ò¼ÜÄÚÖÃµÄShiro Subject¶ÔÏó
+	//subjectæˆ–æ¡†æ¶å†…ç½®çš„Shiro Subjectå¯¹è±¡
 
-## 11. ÎªÊ²Ã´ÔÚ¼¯³Éshiroºó£¬IDEAÆô¶¯ºó²»¶ÏµÄ´òsession²»´æÔÚµÄlog? ##
-	¹§Ï²ÄãÖĞÁËIDEAµÄÒ»¸ö¿Ó£¬ĞŞ¸ÄÒ»ÏÂÅäÖÃ¼´¿É,ÏÂÍ¼ÄÇ¸öAfter launch²»Òª¹´Ñ¡
+## 11. ä¸ºä»€ä¹ˆåœ¨é›†æˆshiroåï¼ŒIDEAå¯åŠ¨åä¸æ–­çš„æ‰“sessionä¸å­˜åœ¨çš„log? ##
+	æ­å–œä½ ä¸­äº†IDEAçš„ä¸€ä¸ªå‘ï¼Œä¿®æ”¹ä¸€ä¸‹é…ç½®å³å¯,ä¸‹å›¾é‚£ä¸ªAfter launchä¸è¦å‹¾é€‰
 ![file-list](http://yunwei2.com/bbs/upload/2016/6/30/c56bf6df21a94067acabd07fd33cf097_8475.jpg_)
-## 12. ÈçºÎÔÚ²éÑ¯ÖĞÔö¼ÓÅÅĞò? ##
-	//¸ù¾İscoreµ¹ÅÅĞò
+## 12. å¦‚ä½•åœ¨æŸ¥è¯¢ä¸­å¢åŠ æ’åº? ##
+	//æ ¹æ®scoreå€’æ’åº
 	ParamMap pd = new ParamMap();
-	//×¢ÒâÕâ¸öscoreÊÇÊı¾İ¿â×Ö¶Î
-	//ReflectHelper.getColumnName(User.class,"score");»ñÈ¡userÀàÖĞscore×Ö¶Î¶ÔÓ¦µÄÊı¾İ¿â×Ö¶Î
+	//æ³¨æ„è¿™ä¸ªscoreæ˜¯æ•°æ®åº“å­—æ®µ
+	//ReflectHelper.getColumnName(User.class,"score");è·å–userç±»ä¸­scoreå­—æ®µå¯¹åº”çš„æ•°æ®åº“å­—æ®µ
 	pd.addOrder("score", "desc");
 	dao.listByParams("PurchaseMapper.list", pd);
 
-## 13. ÈçºÎÊ¹ÓÃ»º´æ? ##
-### 13.1 Ê¹ÓÃ·½·¨Ò»(ÔÚ·½·¨ÉÏ¼Óannotation):
+## 13. å¦‚ä½•ä½¿ç”¨ç¼“å­˜? ##
+### 13.1 ä½¿ç”¨æ–¹æ³•ä¸€(åœ¨æ–¹æ³•ä¸ŠåŠ annotation):
 	@Cached( cacheTime=3600,toJVM = true)
 	public DevSimpleObject invokeObj(int id,String name)
 	{
@@ -366,20 +366,20 @@
 	    dt.setName(name);
 	    return dt;
 	}
-### 13.2 Cached Annotation ÏêÏ¸½âÊÍ
+### 13.2 Cached Annotation è¯¦ç»†è§£é‡Š
 	public @interface Cached {
-    	String objType() default ""; // Ä¬ÈÏÎª¿Õ ,½« °üÃû.ÀàÃû.·½·¨Ãû ×÷Îª »º´æ°üÃû
-    	boolean toJVM() default false; // Ä¬ÈÏÎª¿Õ
-    	int cacheTime() default 3600; // Ä¬ÈÏ 1¸öĞ¡Ê±,µ¥Î»Ãë£¬»º´æÊ§Ğ§Ê±¼ä
+    	String objType() default ""; // é»˜è®¤ä¸ºç©º ,å°† åŒ…å.ç±»å.æ–¹æ³•å ä½œä¸º ç¼“å­˜åŒ…å
+    	boolean toJVM() default false; // é»˜è®¤ä¸ºç©º
+    	int cacheTime() default 3600; // é»˜è®¤ 1ä¸ªå°æ—¶,å•ä½ç§’ï¼Œç¼“å­˜å¤±æ•ˆæ—¶é—´
 	}
-### 13.3 ObjTypeºÍID
-´æÔÚ¼¯ÖĞÊ½»º´æÖĞµÄ¶ÔÏó£¬ÒÔKey-ValueµÄĞÎÊ½´æ´¢¡£ÆäÖĞ
+### 13.3 ObjTypeå’ŒID
+å­˜åœ¨é›†ä¸­å¼ç¼“å­˜ä¸­çš„å¯¹è±¡ï¼Œä»¥Key-Valueçš„å½¢å¼å­˜å‚¨ã€‚å…¶ä¸­
 
 	Key=ObjType + Id
-	//objType:±êÊ¶¶ÔÏóÀàĞÍ
-	//Id:Çø·Ö¶ÔÏóÊµÌå 
+	//objType:æ ‡è¯†å¯¹è±¡ç±»å‹
+	//Id:åŒºåˆ†å¯¹è±¡å®ä½“ 
 
-### 13.4 Ê¹ÓÃ·½·¨¶ş(ÔÚSpringÖĞ»ñÈ¡cacheService com.jumore.dove.cache.CacheService ):Ö±½ÓÊ¹ÓÃCacheService½Ó¿Ú
+### 13.4 ä½¿ç”¨æ–¹æ³•äºŒ(åœ¨Springä¸­è·å–cacheService com.jumore.dove.cache.CacheService ):ç›´æ¥ä½¿ç”¨CacheServiceæ¥å£
 	public interface CacheService {
 	    // com.jumore.dove.cache.user + key(user id)
 	    //public <T>T get(Class<T> cls, String objType,String id,Callable callable,int expireTime);
@@ -393,34 +393,34 @@
 	    public void del(String objType,String id );
 	}
 
-### 13.5 É¾³ıºÍÉèÖÃ»º´æ
-Ê¹ÓÃcom.jumore.dove.cache.Cache µÃµ½@cached²úÉúµÄObjTypeºÍid
+### 13.5 åˆ é™¤å’Œè®¾ç½®ç¼“å­˜
+ä½¿ç”¨com.jumore.dove.cache.Cache å¾—åˆ°@cachedäº§ç”Ÿçš„ObjTypeå’Œid
 
-	//Í¨¹ıµ÷ÓÃ²ÎÊıµÈµ½CacheID     
+	//é€šè¿‡è°ƒç”¨å‚æ•°ç­‰åˆ°CacheID     
 	public static String getCacheId(Object[] args)  
-	//µÃµ½¶ÔÏóÀàĞÍ     
+	//å¾—åˆ°å¯¹è±¡ç±»å‹     
 	public static String getObjectType(Class cls,String methodName)
-µ÷ÓÃCacheServiceÖĞÏàÓ¦µÄ·½·¨
+è°ƒç”¨CacheServiceä¸­ç›¸åº”çš„æ–¹æ³•
 
 	public void set(String objType,String id,Object obj,int expireTime);
 	public void del(String objType,String id );
 
-## 14 ÈçºÎÊµÏÖ·şÎñ»¯
+## 14 å¦‚ä½•å®ç°æœåŠ¡åŒ–
 	
-### 14.1 ·şÎñ»¯½Ó¿Ú¶¨Òå
+### 14.1 æœåŠ¡åŒ–æ¥å£å®šä¹‰
 	//this is a demo service interface
 	public interface UserServiceRemote extends SOARemote {
     	User getUserById(int id);
 	}
-### 14.2 ·şÎñ»¯½Ó¿ÚÊµÏÖ
+### 14.2 æœåŠ¡åŒ–æ¥å£å®ç°
 	@Service
 	public class SOADemoUserService implements UserServiceRemote {
 	    private static Logger logger = LoggerFactory.getLogger(SOADemoUserService.class);
 	    public User getUserById(int id) {
 	    }
 	}
-### 14.3 ·ÃÎÊÔ¶³Ì½Ó¿Ú
-	//Spring ×¢Èë
+### 14.3 è®¿é—®è¿œç¨‹æ¥å£
+	//Spring æ³¨å…¥
 	@Autowired
 	SOAService soaService;
 	public String demoRemote(int userId){
@@ -434,114 +434,114 @@
 	    }
 	}
 	
-## 15 ÏûÏ¢¶ÓÁĞµÄÊ¹ÓÃ
-### 15.1 ·¢ËÍÏûÏ¢µ½queue
+## 15 æ¶ˆæ¯é˜Ÿåˆ—çš„ä½¿ç”¨
+### 15.1 å‘é€æ¶ˆæ¯åˆ°queue
     MQManager mqManager = MQManagerFactory.getMQManager();
     
     @Autowired
     private MessageSender sender;
-    //ÉèÖÃÏûÏ¢È·ÈÏ»Øµ÷·½·¨
+    //è®¾ç½®æ¶ˆæ¯ç¡®è®¤å›è°ƒæ–¹æ³•
     sender.setConfirmCallback(callback);
-    //´´½¨Ò»¸öqueue,·¢ËÍÇ°Òª±£´æqueue´æÔÚ
+    //åˆ›å»ºä¸€ä¸ªqueue,å‘é€å‰è¦ä¿å­˜queueå­˜åœ¨
     mqManager.declareQueue("queueName", true);
     sender.send("string message" , "msgId" , "queueName");
-    //·¢ËÍ¸´ÔÓ¶ÔÏó
+    //å‘é€å¤æ‚å¯¹è±¡
     sender.send(obj,"msgId" , "queueName");
-### 15.2 ·¢²¼ÏûÏ¢µ½topic
+### 15.2 å‘å¸ƒæ¶ˆæ¯åˆ°topic
     MQManager mqManager = MQManagerFactory.getMQManager();
     
     @Autowired
     private MessageSender sender;
     
-    //ÉèÖÃÏûÏ¢È·ÈÏ»Øµ÷·½·¨
+    //è®¾ç½®æ¶ˆæ¯ç¡®è®¤å›è°ƒæ–¹æ³•
     sender.setConfirmCallback(callback);
-    //´´½¨Ò»¸ötopic,·¢ËÍÕßÒª±£Ö¤topic´æÔÚ
+    //åˆ›å»ºä¸€ä¸ªtopic,å‘é€è€…è¦ä¿è¯topicå­˜åœ¨
     MQManagerFactory.getMQManager().declareTopic("topicName", true);
     sender.publish("string message" , "msgId" , "topic");
-    //·¢ËÍ¸´ÔÓ¶ÔÏó
+    //å‘é€å¤æ‚å¯¹è±¡
     sender.publish(obj,"msgId" , "queueName");
-### 15.3 Ïû·Ñ¶ÓÁĞÖĞµÄÏûÏ¢
-    //Spring ×¢Èë
+### 15.3 æ¶ˆè´¹é˜Ÿåˆ—ä¸­çš„æ¶ˆæ¯
+    //Spring æ³¨å…¥
     @Autowired
     private MessageConsumerManager messageConsumerManager;
     
-    //Ìí¼ÓÒ»¸öÏû·ÑÕßÏû·ÑÃû³ÆÎªsmsµÄqueue,Ò»¸öqueue¿ÉÒÔÌí¼Ó¶à¸öÏû·ÑÕß
+    //æ·»åŠ ä¸€ä¸ªæ¶ˆè´¹è€…æ¶ˆè´¹åç§°ä¸ºsmsçš„queue,ä¸€ä¸ªqueueå¯ä»¥æ·»åŠ å¤šä¸ªæ¶ˆè´¹è€…
     messageConsumerManager.start(new MessageReceiverAdapter("sms") {
         public void onMessage(Object msg) {
             System.out.println("receive message from queue,content = "+msg);
-            //ÓĞÒì³£Ó¦¸ÃÅ×³ö£¬MessageConsumerManager¸ºÔğcatch£¬²¢×öÏàÓ¦´¦Àí
+            //æœ‰å¼‚å¸¸åº”è¯¥æŠ›å‡ºï¼ŒMessageConsumerManagerè´Ÿè´£catchï¼Œå¹¶åšç›¸åº”å¤„ç†
         }
     });
     
-    //Ìí¼ÓÒ»¸öÃû³ÆÎªc1µÄÏû·ÑÕß£¬¶©ÔÄreg_successµÄÏûÏ¢¡£¿ÉÒÔÌí¼Ó¶à¸öÏû·ÑÕß¶©ÔÄ
+    //æ·»åŠ ä¸€ä¸ªåç§°ä¸ºc1çš„æ¶ˆè´¹è€…ï¼Œè®¢é˜…reg_successçš„æ¶ˆæ¯ã€‚å¯ä»¥æ·»åŠ å¤šä¸ªæ¶ˆè´¹è€…è®¢é˜…
     //reg_success
     messageConsumerManager.start(new MessageReceiverAdapter("c1","reg_success") {
         public void onMessage(Object msg) {
             System.out.println("receive message from topic ,content = "+msg);
         }
     });
-### 15.4 ÏûÏ¢È·ÈÏ»úÖÆConfirmCallback
-    //·¢ËÍÏûÏ¢(ÏûÏ¢Ã»ÓĞ³É¹¦·¢ËÍµ½¶ÓÁĞÉÏ)µÄ»Øµ÷
+### 15.4 æ¶ˆæ¯ç¡®è®¤æœºåˆ¶ConfirmCallback
+    //å‘é€æ¶ˆæ¯(æ¶ˆæ¯æ²¡æœ‰æˆåŠŸå‘é€åˆ°é˜Ÿåˆ—ä¸Š)çš„å›è°ƒ
     public interface ConfirmCallback {
         /**
-         * »Øµ÷´¦Àí£¬Í¨¹ımessageIdºÍreplyCode´¦ÀíÒµÎñÏµÍ³Êı¾İ×´Ì¬
-         * @param replyCode ack:³É¹¦, nack:Ê§°Ü
+         * å›è°ƒå¤„ç†ï¼Œé€šè¿‡messageIdå’ŒreplyCodeå¤„ç†ä¸šåŠ¡ç³»ç»Ÿæ•°æ®çŠ¶æ€
+         * @param replyCode ack:æˆåŠŸ, nack:å¤±è´¥
          */
         public void handleReturn(String replyCode, String replyText, String messageId) throws IOException;
     }
-## 16 Ê¹ÓÃËÑË÷API
-### 16.1 springÅäÖÃÎÄ¼şÖĞ¼ÓÈë
+## 16 ä½¿ç”¨æœç´¢API
+### 16.1 springé…ç½®æ–‡ä»¶ä¸­åŠ å…¥
 
     <bean id="searchService" class="com.jumore.dove.common.search.impl.DefaultJSearch" />
-propertiesÎÄ¼şÖĞ¼ÓÈë
+propertiesæ–‡ä»¶ä¸­åŠ å…¥
     
     searchServers=192.168.1.50:9300
     esClusterName=es-local
     esIndex=dove-demo
-### 16.2 ËÑË÷Êı¾İ
+### 16.2 æœç´¢æ•°æ®
 
     /**
-     * ¸ù¾İsqlËÑË÷Êı¾İ,Ê¹ÓÃÁËelasticsearch-sql²å¼ş £¬     Óï·¨Ïê¼ûhttps://github.com/NLPchina/elasticsearch-sql
+     * æ ¹æ®sqlæœç´¢æ•°æ®,ä½¿ç”¨äº†elasticsearch-sqlæ’ä»¶ ï¼Œ     è¯­æ³•è¯¦è§https://github.com/NLPchina/elasticsearch-sql
      * @param sql
      * @param page
      * @return
      */
     public Page find(String sql, Page page) ;
-### 16.3 Ìí¼ÓÊı¾İµ½ËÑË÷ÒıÇæ
+### 16.3 æ·»åŠ æ•°æ®åˆ°æœç´¢å¼•æ“
 
     /**
-     * Ë÷ÒıÊı¾İ
+     * ç´¢å¼•æ•°æ®
      * @param index
      * @param type
-     * @param text ±ØĞëÊÇjson¸ñÊ½µÄ
-     * @param statisticFields ĞèÒªÍ³¼ÆµÄ×Ö¶Î
+     * @param text å¿…é¡»æ˜¯jsonæ ¼å¼çš„
+     * @param statisticFields éœ€è¦ç»Ÿè®¡çš„å­—æ®µ
      */
     public void indexing(String type ,String id, String text , List<String> statisticFields);
-### 16.4 É¾³ıÊı¾İ
+### 16.4 åˆ é™¤æ•°æ®
 
     /**
-     * ¸ù¾İidÉ¾³ı¼ÇÂ¼
+     * æ ¹æ®idåˆ é™¤è®°å½•
      * @param type
      * @param id
-     * @param statisticFields ĞèÒªÍ³¼ÆµÄ×Ö¶Î
+     * @param statisticFields éœ€è¦ç»Ÿè®¡çš„å­—æ®µ
      * @return
      */
     public boolean deleteDoc(String type , String id , List<String> statisticFields);
     
-## 17 ÈÕÖ¾µÄÊ¹ÓÃ
-    add,update,delete,otherÔÚÃ¶¾ÙÀàOperationTypeÖĞ¶¨Òå
-    ÊµÀı´úÂë
+## 17 æ—¥å¿—çš„ä½¿ç”¨
+    add,update,delete,otheråœ¨æšä¸¾ç±»OperationTypeä¸­å®šä¹‰
+    å®ä¾‹ä»£ç 
     /**
      * 
-     * ¼ÇÂ¼ĞÂÔö²Ù×÷£¬ĞèÒª¼ÇÂ¼ĞÂÔöµÄÊı¾İ¶ÔÏó
+     * è®°å½•æ–°å¢æ“ä½œï¼Œéœ€è¦è®°å½•æ–°å¢çš„æ•°æ®å¯¹è±¡
      *      OperationLogBuilder.get(OperationType.add)
      *          .set(OperationLogParam.userId, 123L).set(OperationLogParam.beizhu, "add a new entity").set(OperationLogParam.newData, vo).save();
      * 
-     * ¼ÇÂ¼É¾³ı²Ù×÷,ĞèÒª¼ÇÂ¼É¾³ıµÄÊı¾İ¶ÔÏó
+     * è®°å½•åˆ é™¤æ“ä½œ,éœ€è¦è®°å½•åˆ é™¤çš„æ•°æ®å¯¹è±¡
      *      OperationLogBuilder.get(OperationType.delete)
      *          .set(OperationLogParam.userId, 123L).set(OperationLogParam.beizhu, "delete a entity").set(OperationLogParam.oldData, po).save();
      * 
-     * ¼ÇÂ¼¸üĞÂ²Ù×÷,ĞèÒª¼ÇÂ¼¸üĞÂÇ°ºÍ¸üĞÂºóµÄÊı¾İ¶ÔÏó£¬·½·¨»á×Ô¶¯¼ÇÂ¼²îÒì
+     * è®°å½•æ›´æ–°æ“ä½œ,éœ€è¦è®°å½•æ›´æ–°å‰å’Œæ›´æ–°åçš„æ•°æ®å¯¹è±¡ï¼Œæ–¹æ³•ä¼šè‡ªåŠ¨è®°å½•å·®å¼‚
      *      Purchase po = service.get(Purchase.class, id);
      *      Purchase old = (Purchase)BeanUtils.cloneBean(po);
      *      po.address="update address4";
@@ -553,15 +553,15 @@ propertiesÎÄ¼şÖĞ¼ÓÈë
      * @author yexinzhou
      *
      */
-## 18 logµÄÊ¹ÓÃ
-    //ÒıÈë
+## 18 logçš„ä½¿ç”¨
+    //å¼•å…¥
     protected final LogHelper logHelper = LogHelper.getLogger(this.getClass());
-    //ÊµÀı,×¢Òâ logHelper.getBuilder()Îª±ØĞëµÄ
+    //å®ä¾‹,æ³¨æ„ logHelper.getBuilder()ä¸ºå¿…é¡»çš„
     logHelper.getBuilder().tag("username", "yexinzhou").tag("action", "login").info("user logger in.");
 
-## 19 ·Ç·¨×Ö·ûµÄĞ£Ñé
+## 19 éæ³•å­—ç¬¦çš„æ ¡éªŒ
 
-## 20 Í³¼Æ¹¦ÄÜµÄÊ¹ÓÃ
-    Ê¹ÓÃ×¢½â@StatisticsÀ´ÊµÏÖ·ÃÎÊµÄ´ÎÊıºÍ·ÃÎÊºÄÊ±µÄÍ³¼Æ,×¢½â@Statistics¿ÉÒÔ¼ÓÔÚMethod , Class , PackageÈı¸ö¼¶±ğÉÏ¡£
-    ÅäºÏ@NoStatistics×¢½â¿ÉÒÔºÜºÃµÄÊµÏÖ¸÷ÖÖÁé»îµÄÅäÖÃ
-## 20 Éú³ÉÊµÌåÀà
+## 20 ç»Ÿè®¡åŠŸèƒ½çš„ä½¿ç”¨
+    ä½¿ç”¨æ³¨è§£@Statisticsæ¥å®ç°è®¿é—®çš„æ¬¡æ•°å’Œè®¿é—®è€—æ—¶çš„ç»Ÿè®¡,æ³¨è§£@Statisticså¯ä»¥åŠ åœ¨Method , Class , Packageä¸‰ä¸ªçº§åˆ«ä¸Šã€‚
+    é…åˆ@NoStatisticsæ³¨è§£å¯ä»¥å¾ˆå¥½çš„å®ç°å„ç§çµæ´»çš„é…ç½®
+## 20 ç”Ÿæˆå®ä½“ç±»
