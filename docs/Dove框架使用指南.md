@@ -564,19 +564,19 @@ properties文件中加入
     
     1、HTTP请求的Parameter参数非法字符校验
     配置spring拦截器即可，示例：
-    <!-- 拦截器配置 -->
-   <mvc:interceptors>  
-   <!-- 非法字符拦截器 -->
-        <mvc:interceptor>         
-        <mvc:mapping path="/**"/> 
-        <!-- 静态资源 -->
-        <mvc:exclude-mapping path="/page/**"/>
-        <mvc:exclude-mapping path="/assets/**"/>
-        <!-- 其它不进行转义字符判断的URL -->
-        <mvc:exclude-mapping path="/config/**"/>      
-        <bean class=" com.jumore.dove.aop.interceptor.IllegalCharInterceptor"/>    
-        </mvc:interceptor>  
-    </mvc:interceptors>
+	<!-- 拦截器配置 -->
+	   <mvc:interceptors>  
+	   <!-- 非法字符拦截器 -->
+		<mvc:interceptor>         
+		<mvc:mapping path="/**"/> 
+		<!-- 静态资源 -->
+		<mvc:exclude-mapping path="/page/**"/>
+		<mvc:exclude-mapping path="/assets/**"/>
+		<!-- 其它不进行转义字符判断的URL -->
+		<mvc:exclude-mapping path="/config/**"/>      
+		<bean class="com.jumore.dove.aop.interceptor.IllegalCharInterceptor"/>    
+		</mvc:interceptor>  
+	    </mvc:interceptors>
     
     2、HTTP请求(Content-Type=application/json)，body正文非法字符校验
     在web.xml中配置过滤器，以tomcat配置为例：
