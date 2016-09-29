@@ -560,6 +560,35 @@ properties文件中加入
     logHelper.getBuilder().tag("username", "yexinzhou").tag("action", "login").info("user logger in.");
 
 ## 19 非法字符的校验
+    当存在非法字符（html转义字符）时，抛出BusinessException异常
+    
+    1、HTTP请求的Parameter参数非法字符校验
+    配置spring拦截器即可，示例：
+    <!-- 拦截器配置 -->
+   <mvc:interceptors>  
+   <!-- 非法字符拦截器 -->
+        <mvc:interceptor>         
+        <mvc:mapping path="/**"/> 
+        <!-- 静态资源 -->
+        <mvc:exclude-mapping path="/page/**"/>
+        <mvc:exclude-mapping path="/assets/**"/>
+        <!-- 其它不进行转义字符判断的URL -->
+        <mvc:exclude-mapping path="/config/**"/>      
+        <bean class=" com.jumore.dove.aop.interceptor.IllegalCharInterceptor"/>    
+        </mvc:interceptor>  
+    </mvc:interceptors>
+    
+    2、HTTP请求(Content-Type=application/json)，body正文非法字符校验
+    在web.xml中配置过滤器，以tomcat配置为例：
+    <!-- json请求body体非法字符判断 -->
+    <filter>
+	<filter-name>illegalCharBodyFilter</filter-name>
+	<filter-class>com.jumore.dove.web.filter.IllegalCharBodyFilter</filter-class>
+	</filter>
+	<filter-mapping>
+	<filter-name>illegalCharBodyFilter</filter-name>
+	<url-pattern>/*</url-pattern>
+    </filter-mapping>
 
 ## 20 统计功能的使用
     使用注解@Statistics来实现访问的次数和访问耗时的统计,注解@Statistics可以加在Method , Class , Package三个级别上。
