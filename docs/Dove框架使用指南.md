@@ -616,3 +616,19 @@ properties文件中加入
     
 ## 21 生成实体类
     [https://github.com/jm-team/dove-doc/blob/master/mybatis-generator-core-1.3.3.jar](https://github.com/jm-team/dove-doc/blob/master/mybatis-generator-core-1.3.3.jar "实体类生成工具")
+## 21 异步方法
+	框架内置了google的EventBus,使用时直接使用spring bean注入的方式使用
+
+### 21.1生产者
+	@Autowired
+	private AsyncEventBus asyncEBus
+	.......
+	asyncEBus.post(news);
+### 21.2消费者
+	@AsynEventSubscriber
+	public class NewsReceiver{
+		@Subscribe
+		public void one(News news){
+			...		
+		}
+	}
