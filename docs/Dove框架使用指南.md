@@ -632,3 +632,27 @@ properties文件中加入
 			...		
 		}
 	}
+	
+## 22 任务 ElasticJob的使用
+	Dove中封装了ElasticJob来提供定时任务的能力。
+	通过以下步骤，编写一个定时任务。
+	1. 编写一个任务类，继承com.jumore.dove.schedule.simple.SimpleScheduleTask类。
+	2. 为此类增加SimpleScheduled注解。此注解有两个属性，cron为同crontab的执行时间格式，description为此任务的描述。
+	3. 实现public void process(JobExecutionMultipleShardingContext shardingContext)方法，在这里编写实际的任务代码。
+	4. 为此类增加@Component等Spring标签，并配置使得Spring可以扫描到此类，这样就会被管理，按照cron设置的时间被执行。
+	
+	示例：
+	
+	@Component
+	@SimpleScheduled(cron = "0/30 * * * * ?", description = "demo定时任务")
+	public class DemoScheduledJob extends SimpleScheduleTask {
+
+	@Resource
+	private DemoService demoService;
+	
+	@Override
+	public void process(JobExecutionMultipleShardingContext shardingContext) {
+			// 在这里编写你的任务代码
+			demoService.doSomething();
+		}
+	}
