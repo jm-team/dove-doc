@@ -182,11 +182,6 @@
 	 * 分页查询，多用于单表查询,需要在mapper.xml文件中写sql语句
 	 */
 	public <T> Page<T> findPageByParams(Class<T> clazz , Page<T> page ,String statement , ParamMap paramMap);
-	
-    /**
-	 * 单表分页免sql查询,不需要在mapper.xml文件中写sql语句
-	 */
-	public <T> Page<T> findPage(Class<T> clazz , Page<T> page , ParamMap paramMap);
 
     /**
 	 * 分页查询，多用于关联查询
@@ -356,30 +351,8 @@
 	dao.listByParams("PurchaseMapper.list", pd);
 
 ## 13. 如何使用缓存? ##
-### 13.1 使用方法一(在方法上加annotation):
-	@Cached( cacheTime=3600,toJVM = true)
-	public DevSimpleObject invokeObj(int id,String name)
-	{
-	    logger.info("DevSampleServiceImpl.invokeObj create obj. " + id + " " + name);
-	    DevSimpleObject dt = new DevSimpleObject();
-	    dt.setId(id);
-	    dt.setName(name);
-	    return dt;
-	}
-### 13.2 Cached Annotation 详细解释
-	public @interface Cached {
-    	String objType() default ""; // 默认为空 ,将 包名.类名.方法名 作为 缓存包名
-    	boolean toJVM() default false; // 默认为空
-    	int cacheTime() default 3600; // 默认 1个小时,单位秒，缓存失效时间
-	}
-### 13.3 ObjType和ID
-存在集中式缓存中的对象，以Key-Value的形式存储。其中
 
-	Key=ObjType + Id
-	//objType:标识对象类型
-	//Id:区分对象实体 
-
-### 13.4 使用方法二(在Spring中获取cacheService com.jumore.dove.cache.CacheService ):直接使用CacheService接口
+### 13.1 使用方法(在Spring中获取cacheService com.jumore.dove.cache.CacheService ):直接使用CacheService接口
 	public interface CacheService {
 	    // com.jumore.dove.cache.user + key(user id)
 	    //public <T>T get(Class<T> cls, String objType,String id,Callable callable,int expireTime);
@@ -393,7 +366,7 @@
 	    public void del(String objType,String id );
 	}
 
-### 13.5 删除和设置缓存
+### 13.2 删除和设置缓存
 使用com.jumore.dove.cache.Cache 得到@cached产生的ObjType和id
 
 	//通过调用参数等到CacheID     
