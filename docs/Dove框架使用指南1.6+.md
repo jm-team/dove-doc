@@ -22,12 +22,23 @@
  	</dependency>
  	...............
  	更多的可以按需引入
+	或者
+	<dependency> 
+   		<groupId>com.jumore</groupId>
+      	<artifactId>dove-all</artifactId>
+		<!--具体版本号联系架构组-->
+      	<version>1.6.0-SNAPSHOT</version>
+ 	</dependency>
+	引入所有
 在你的spring配置文件中加入以下配置
 
 	<import resource="classpath:dove/dove-*.xml"/>
 	<!--也可以根据需要分别引入
 	<import resource="classpath:dove/dove-mvc.xml"/>
 	<import resource="classpath:dove/dove-dao.xml"/>
+	<import resource="classpath:dove/dove-cache.xml"/>
+	<import resource="classpath:dove/dove-soa.xml"/>
+	<import resource="classpath:dove/dove-mq.xml"/>
 	<import resource="classpath:dove/dove-service.xml"/>
 	-->
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
