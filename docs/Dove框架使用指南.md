@@ -550,6 +550,11 @@ properties文件中加入
 		<bean class="com.jumore.dove.aop.interceptor.IllegalCharInterceptor"/>    
 		</mvc:interceptor>  
 	    </mvc:interceptors>
+    需要增加mvc命名空间
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    http://www.springframework.org/schema/mvc    
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd
+	(不明白问度娘)
     
     2、HTTP请求(Content-Type=application/json)，body正文非法字符校验
     在web.xml中配置过滤器，以tomcat配置为例：
