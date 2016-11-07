@@ -11,7 +11,7 @@
    		<groupId>com.jumore</groupId>
       	<artifactId>dove</artifactId>
 		<!--具体版本号联系架构组-->
-      	<version>1.5.0-SNAPSHOT</version>
+      	<version>1.5.2-SNAPSHOT</version>
  	</dependency>
 
 在你的spring配置文件中加入以下配置
