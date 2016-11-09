@@ -499,6 +499,8 @@ properties文件中加入
      * @return
      */
     public Page find(String sql, Page page) ;
+### 16.2.1 使用高亮
+	select  /*! HIGHLIGHT(title_ana_ch,pre_tags : ['<b>'], post_tags : ['</b>']  ) */  *  FROM dove-demo
 ### 16.3 添加数据到搜索引擎
 
     /**
