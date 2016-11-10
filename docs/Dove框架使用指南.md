@@ -530,7 +530,7 @@ properties文件中加入
     //引入
     protected final LogHelper logHelper = LogHelper.getLogger(this.getClass());
     //实例,注意 logHelper.getBuilder()为必须的
-    logHelper.getBuilder().tag("username", "yexinzhou").tag("action", "login").info("user logger in.");
+    logHelper.getBuilder().tag("username", "yexinzhou").tag("action", "login").info("user {} logger in.","xzye");
 
 ## 19 非法字符的校验
     当存在非法字符（html转义字符）时，抛出BusinessException异常
