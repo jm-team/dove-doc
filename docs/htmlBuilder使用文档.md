@@ -58,4 +58,44 @@
 		
 	buildHtmlWithJsonArray('repeat_user',arr,false,false);
 ```
+### 4. 循环嵌套
+```
+	<!-- 嵌套循环 -->
+	<div>
+		<!-- data-item为可选项,在嵌套循环时，如果有key冲突的情况下，可以设置data-item来区分 -->
+		<div class="dept_repeat" data-item="dept">
+			<input type="checkbox"  /><span>$[dept.name]</span>
+			<div style="padding-left:20px;">
+				<span class="role_repeat_$[dept.name]"  data-item="role">
+					<input type="checkbox"  /><span>$[role.name]</span>
+				</span>
+			</div>
+		</div>
+	</div>
+	
+	var json = {
+		    "depts": [
+		              {
+		                  "name": "国际",
+		                  "roles": [
+		                      {
+		                          "name": "总监"
+		                      },
+		                      {
+		                          "name": "财务"
+		                      },
+		                      {
+		                          "name": "交易员"
+		                      }
+		                  ]
+		              }
+		          ]
+		      };
+	buildHtmlWithJsonArray('dept_repeat' , json.depts , false , false);
+	for(var i=0;i<json.depts.length;i++){
+		var dept =  json.depts[i];
+		buildHtmlWithJsonArray('role_repeat_'+dept['name'] , dept.roles , false , false);	
+	}
+```
+
 ### END

@@ -397,6 +397,39 @@
 	public void set(String objType,String id,Object obj,int expireTime);
 	public void del(String objType,String id );
 
+### 13.3 基于注解的缓存
+	假设有一个bookService,其中有一个方法获取书名
+	
+    public String getBookName(Long bookId) {
+        return "book for xzye";
+    }
+ 	想对这个方法做缓存，只需要加一个注解即可
+ 	
+ 	@DoveCache(id="book" , idFromParamName="bookId" cacheTime="300")
+ 	public String getBookName(Long bookId) {
+        return "book for xzye";
+    }
+    cacheTime="300"表示缓存时间是300秒
+    id是必须的
+    idFromParamName不是必须的，用户从方法参数中找到指定名称的参数，用参数值作为id的一部分
+ 	此时生成的缓存id为book+":"+bookId，如果参数bookId=3，则对应生成的缓存id为 book:3.
+	对于缓存我们抽象出两个最基础的结构，当个对象(元素)和对象的集合.
+	对于集合我们只需要指定DoveCache中的id属性值即可，对于单个对象(元素)而言，需要每个对象都有一个标示，而这个指基本都应该可以从方法参数中找到。只需要指定对应的idFromParamName就可以
+	
+	注意：这种实现方式使用的spring的aop,所以在spring context的xml文件中需要加上
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
+	
+	缓存失效
+	使用异步事件来做，在需要的地方
+	asyncEBus.post(new CacheExpireEvent("book", "12"));
+	或者
+	asyncEBus.post(new CacheExpireEvent("someOtherKey",""));
+	
+	asyncEBus是一个内置的spirng bean只需要在使用的地方自动注入就可以
+	
+	@Autowired
+	private AsyncEventBus asyncEBus;
+	
 ## 14 如何实现服务化
 	
 ### 14.1 服务化接口定义
