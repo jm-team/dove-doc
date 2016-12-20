@@ -3,7 +3,9 @@
  */
 function buildHtmlWithJsonArray(clazz,json,removeTemplate,remainItems){
     var temp = $('.'+clazz);
-
+    if(temp.length==0){
+    	return;
+    }
     var subCatagory = temp.parent();
     var dhtml = temp[0].outerHTML;
     //var temp = $(first);
@@ -66,6 +68,9 @@ function buildHtmlWithJson(temp,json , rowIndex){
     var subCatagory = $(dhtml);
     
     var cIfs = subCatagory.find('cif');
+    if(!subCatagory.hasClass('nestRepeat')){
+    	cIfs = cIfs.not('.nestRepeat cif');
+    }
     cIfs.each(function(index,obj){
         $(obj).parent().html(processCIf(obj));
     });
