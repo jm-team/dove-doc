@@ -27,7 +27,8 @@
 			<td>性别</td>
 			<td>操作</td>
 		</th>
-	<tr class="repeat_user">
+	<tbody>
+	<tr class="repeat_user" style="display:none">
 		<td>$[name]</td>
 		<td>$[age]</td>
 		<!-- formatDate是 htmlBuilderHelper.js中定义的一个js方法-->
@@ -41,6 +42,7 @@
 			</cif>
 		</td>
 	</tr>
+	</tbody>
 	<table>
 	var arr = [{
 				"id":23,
